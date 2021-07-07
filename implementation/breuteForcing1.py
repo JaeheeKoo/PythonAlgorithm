@@ -9,3 +9,17 @@
 # 난이도 1, 풀이시간 15분, 시간제한 2초, 메모리 제한 128MB
 # 입력 조건 : 첫째 줄에 정수 N이 입력 (0 <= N <= 23)
 # 출력 조건 : 3이 하나라도 포함되는 모든 경우의 수를 출력
+
+
+N = int(input("입력 : "))
+
+for i in range(0, N + 1):
+    for j in range(60):
+        for k in range(60):
+            hour = str(i).zfill(2)
+            minute = str(j).zfill(2) 
+            second = str(k).zfill(2)
+            S =  hour + minute + second 
+            if "3" in S:
+                print("{}시 {}분 {}초".format(hour, minute, second))
+
