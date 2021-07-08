@@ -11,3 +11,37 @@
 # 입력 조건 : 첫째 줄에 현재 나이트가 위차한 곳의 좌표를 나타내는 두 문자로 구성된 문자 열이 입력
 #            입력 문자는 a1처럼 열과 행으로 이뤄짐
 # 출력 조건 : 첫째 줄에 나이트가 이동할 수 있는 경우의 수를 출력
+
+place = input("입력 :")
+row = int(place[1])
+col = ord(place[0]) - ord('a') + 1
+
+dx = [-1, -1, 1, 1, -2, -2, 2, 2]
+dy = [-2, 2,-2, 2, -1, 1, -1, 1, -1, 1]
+
+count = 0
+
+for i in range(len(dx)):
+    nx = row + dy[i]
+    ny = col + dx[i]
+
+    if 1 <= nx <= 8 and 1 <= ny <= 8:
+        count += 1
+
+print(count, "개") 
+
+
+# 해답
+input_data = input()
+row = int(input_data[1])
+column = int(ord(input_data[0])) - int(ord('a')) + 1
+
+steps = [(-2,-1), (-1,-2), (1,-2), (2,-1), (2,1),(1,2),(-1,2),(-2,1)]
+
+result = 0
+for step in steps:
+    next_row = row + step[0]
+    next_column = column + step[1]
+    if 1 <= next_row <= 8 and 1<= next_column <= 8:
+        result += 1
+print(result)
